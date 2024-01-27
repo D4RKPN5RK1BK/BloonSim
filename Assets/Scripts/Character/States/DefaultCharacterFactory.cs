@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using CoreLibrary.StateMachine;
 using UnityEngine;
 
-public class DefaultCharacterFactory : MonoBehaviour
+namespace Assets.Scripts.Character.States
 {
-    // Start is called before the first frame update
-    void Start()
+    public class DefaultCharacterFactory
     {
-        
-    }
+        public JumpState Jump { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public StandState Stand { get; set; }
+
+        public DefaultCharacterFactory(GameObject model, IStateContext<DefaultCharacterFactory> target) 
+        { 
+            Jump = new JumpState(model, target, this);
+            Stand = new StandState(model, target, this);
+        }
     }
 }

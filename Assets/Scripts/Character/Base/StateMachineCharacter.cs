@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Character.States;
+using CoreLibrary.StateMachine;
 using UnityEngine;
 
-public class StateMachineCharacter : MonoBehaviour
+public class StateMachineCharacter : MonoBehaviour, IStateContext<DefaultCharacterFactory>
 {
-    // Start is called before the first frame update
-    void Start()
+    public CharacterState<DefaultCharacterFactory> CurrentState { get; set; }
+
+    protected void Start()
     {
-        
+        var stateFactory = new DefaultCharacterFactory(gameObject, this);
+        CurrentState = stateFactory.Stand;
+        CurrentState.EnterState();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        CurrentState.CheckSwitchState();
+        CurrentState.HandleState();
     }
 }

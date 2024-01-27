@@ -183,11 +183,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4880625275673635701}
   - component: {fileID: 4043469971241995756}
-  - component: {fileID: 634699990415148821}
-  - component: {fileID: 5965070092848901497}
-  - component: {fileID: 6264991156482953576}
   - component: {fileID: 3172838340625278945}
   - component: {fileID: 7305717257548601523}
+  - component: {fileID: 2505104862060868245}
+  - component: {fileID: 3746461309522377392}
+  - component: {fileID: 2554039963931062897}
+  - component: {fileID: 985624650129537365}
   m_Layer: 0
   m_Name: BloonBoy
   m_TagString: Untagged
@@ -237,42 +238,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &634699990415148821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923983191012730365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 830d7242c16192140ab32fb3d8ca7421, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5965070092848901497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923983191012730365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce89a645508649f4e915ffddce2edfea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6264991156482953576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923983191012730365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7331a75ca2c8ee6418f20cf7b49a09fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3172838340625278945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,3 +262,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc426e44302ba94abb5ed61838463aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2505104862060868245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc72576955e1bb948824cc0f51724e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityPressure: 1
+--- !u!114 &3746461309522377392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27df52defdd4fb446b41b66bda10695a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpBuffer: 0
+  jumpForce: 0
+  jumpControlScale: 0
+--- !u!114 &2554039963931062897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38950a46ade439842a1066e52b20cb71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkModel:
+    maxForce: 10
+    speedup: 10
+    drag: 10
+    rotationSpeed: 10
+    fallForce: 300
+    airControlModifier: 0
+  runModel:
+    maxForce: 10
+    speedup: 10
+    drag: 10
+    rotationSpeed: 10
+    fallForce: 300
+    airControlModifier: 0
+--- !u!114 &985624650129537365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459ba063eb0f25542b1b5acbf9ed6a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationTarget: {fileID: 0}
+  rotationForce: 1
+  acceliration: 10
+  roationDrag: 10
+  cameraTarget: {fileID: 0}
+  test: {fileID: 0}

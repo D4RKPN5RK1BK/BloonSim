@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using CoreLibrary.StateMachine;
 using UnityEngine;
 
-public class JumpState : MonoBehaviour
+namespace Assets.Scripts.Character.States
 {
-    // Start is called before the first frame update
-    void Start()
+    public class JumpState : CharacterState<DefaultCharacterFactory>
     {
-        
-    }
+        public JumpState(GameObject model, IStateContext<DefaultCharacterFactory> handler, DefaultCharacterFactory factory) : base(model, handler, factory)
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public override void CheckSwitchState()
+        {
+            
+        }
+
+        public override void EnterState()
+        {
+            
+        }
+
+        public override void ExitState()
+        {
+            
+        }
+
+        public override void HandleState()
+        {
+            
+        }
+
+        private void SwitchToStand() => SwitchState(Factory.Stand);
     }
 }

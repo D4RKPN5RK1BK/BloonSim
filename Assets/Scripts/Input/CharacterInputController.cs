@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Character.ActionHandlers;
+using CoreLibrary.Character;
+using CoreLibrary.Input;
 using UnityEngine;
 
-public class CharacterInputController : MonoBehaviour
+namespace Assets.Scripts.Input
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CharacterInputController : InputControler<PlayerInput>
     {
-        
-    }
+        private POVHandler rotateHandler;
+        private WalkHandler walkHandler;
+        private JumpHandler jumpHandler;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Awake()
+        {
+            base.Awake();
+            rotateHandler = GetComponent<POVHandler>();
+            walkHandler = GetComponent<WalkHandler>();
+            jumpHandler = GetComponent<JumpHandler>();
+
+            ActionSet.InGame.Jump.performed += _ => { jumpHandler.Jump(); };
+        }
+
+        private void Update()
+        {
+            rotateHandler.Rotate(ActionSet.InGame.Rotate.ReadValue<Vector2>());
+            walkHandler.Walk(ActionSet.InGame.Move.ReadValue<Vector2>());
+        }
     }
 }
