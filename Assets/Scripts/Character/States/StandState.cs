@@ -7,15 +7,13 @@ namespace Assets.Scripts.Character.States
     public class StandState : CharacterState<DefaultCharacterFactory>
     {
         private readonly WalkHandler _walkHandler;
-        private readonly RotateHandler _rotateHandler;
-        private readonly CharacterController _characterController;
+        private readonly Rigidbody _rigidbody;
         private readonly Transform _character;
 
         public StandState(GameObject model, IStateContext<DefaultCharacterFactory> handler, DefaultCharacterFactory factory) : base(model, handler, factory)
         {
-            _characterController = model.GetComponent<CharacterController>();
+            _rigidbody = model.GetComponent<Rigidbody>();
             _walkHandler = model.GetComponent<WalkHandler>();
-            _rotateHandler = model.GetComponent<RotateHandler>();
             _character = model.transform.Find("Character");
         }
 
@@ -38,8 +36,8 @@ namespace Assets.Scripts.Character.States
         {
             var offset = _walkHandler.WalkDirection;
             var motion = offset.x * _character.right + offset.y * _character.forward;
-            motion += new Vector3(0, -10, 0);
-            _characterController.Move(Time.deltaTime * 10 * motion);
+            //motion += new Vector3(0, -10, 0);
+            _rigidbody.MovePosition(_rigidbody.position + Time.deltaTime * 10 * motion);
             //_rotateHandler.U
         }
 
