@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3831467647066780956}
   - component: {fileID: 3002611550520163795}
   - component: {fileID: 2781245557368111107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7878222127547203883}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7170306173867330447}
   - component: {fileID: 1524653665844963680}
-  m_Layer: 0
+  - component: {fileID: 7260312606648646821}
+  m_Layer: 6
   m_Name: Bloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,9 +183,9 @@ Rigidbody:
   m_GameObject: {fileID: 3553775931094433652}
   serializedVersion: 4
   m_Mass: 0.01
-  m_Drag: 0
+  m_Drag: 0.2
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.2, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -193,13 +194,25 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7260312606648646821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553775931094433652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6c35cec72b01949b11a21764c77b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5645083694312664450
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +225,7 @@ GameObject:
   - component: {fileID: 8019923167690943223}
   - component: {fileID: 9093071183543643317}
   - component: {fileID: 8671811855384856641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
