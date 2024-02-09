@@ -10,11 +10,12 @@ namespace CoreLibrary.Common
     {
         public bool disableCursor;
 
-        public Action<bool> OnPauseToggle { get; set; } = _ => { };
-        public Action<bool> OnCompleteToggle { get; set; } = _ => { };
+        public Action OnPauseToggle { get; set; } = () => { };
+        public Action OnResumeToggle { get; set; } = () => { };
+        public Action OnCompleteToggle { get; set; } = () => { };
 
-        public bool inPause { get;  private set; }
-        public bool isCompleted { get; private set; }
+        public bool InPause { get;  private set; }
+        public bool IsCompleted { get; private set; }
 
         public static CommonController Instance { get; private set; }
 
@@ -34,22 +35,26 @@ namespace CoreLibrary.Common
 
         public void Pause()
         {
-            inPause = !inPause;
-            Cursor.visible = disableCursor && inPause;
+            InPause = !InPause;
+            Cursor.visible = disableCursor && InPause;
 
-            if (inPause)
+            if (InPause)
+            {
                 Time.timeScale = 0.0f;
+                OnPauseToggle();
+            }
             else
+            {
+                OnResumeToggle();
                 Time.timeScale = 1.0f;
-
-            OnPauseToggle(inPause);
+            }
         }
 
         public void Complete()
         {
-            isCompleted = true;
-            Cursor.visible = disableCursor && isCompleted;
-            OnCompleteToggle(isCompleted);
+            IsCompleted = true;
+            Cursor.visible = disableCursor && IsCompleted;
+            OnCompleteToggle();
         }
     }
 }

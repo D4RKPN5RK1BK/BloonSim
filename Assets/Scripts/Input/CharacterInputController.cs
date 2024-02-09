@@ -1,5 +1,6 @@
 using Assets.Scripts.Character.ActionHandlers;
 using CoreLibrary.Character;
+using CoreLibrary.Common;
 using CoreLibrary.Input;
 using UnityEngine;
 
@@ -19,6 +20,14 @@ namespace Assets.Scripts.Input
             jumpHandler = GetComponent<JumpHandler>();
 
             ActionSet.InGame.Jump.performed += _ => { jumpHandler.Jump(); };
+        }
+
+        private void Start()
+        {
+            var common = CommonController.Instance;
+
+            common.OnPauseToggle += () => { ActionSet.InGame.Disable(); };
+            common.OnResumeToggle += () => { ActionSet.InGame.Enable(); };
         }
 
         private void Update()
