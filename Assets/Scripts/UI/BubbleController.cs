@@ -20,7 +20,7 @@ public class BubbleController : MonoBehaviour
 
     private void Update()
     {
-        var offset = Mathf.Sin(Time.time + rectTransform.position.x + waveOffset) * verticalOffset;
+        var offset = Mathf.Sin(Time.time + rectTransform.localPosition.x + waveOffset) * verticalOffset;
         rectTransform.localPosition = initialPosition + new Vector3(0, offset, 0);
     }
 }

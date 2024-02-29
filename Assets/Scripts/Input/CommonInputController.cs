@@ -1,6 +1,5 @@
 using CoreLibrary.Common;
 using CoreLibrary.Input;
-using UnityEngine;
 
 namespace Assets.Scripts.Input
 {
@@ -26,8 +25,8 @@ namespace Assets.Scripts.Input
                 ActionSet.InGame.Enable();
             };
 
-            ActionSet.InGame.Pause.performed += _ => { _commonController.Pause(); Debug.Log("123123"); };
-            ActionSet.InPause.Pause.performed += _ => { _commonController.Pause(); Debug.Log("123123"); };
+            ActionSet.InGame.Pause.performed += _ => { _commonController.Pause(); };
+            ActionSet.InPause.Pause.performed += _ => { _commonController.Pause(); };
         }
     }
 }
