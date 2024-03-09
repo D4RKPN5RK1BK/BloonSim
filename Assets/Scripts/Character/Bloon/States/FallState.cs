@@ -1,15 +1,13 @@
 ﻿using CoreLibrary.StateMachine;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Character.Bloon.States
 {
-    public class FloatState : CharacterState<BloonStateFactory>
+    public class FallState : CharacterState<BloonStateFactory>
     {
-        public FloatState(GameObject model, IStateContext<BloonStateFactory> handler, BloonStateFactory factory) : base(model, handler, factory)
+        public FallState(GameObject model, IStateContext<BloonStateFactory> handler, BloonStateFactory factory) : base(model, handler, factory)
         {
         }
-
         public override void CheckSwitchState()
         {
         }

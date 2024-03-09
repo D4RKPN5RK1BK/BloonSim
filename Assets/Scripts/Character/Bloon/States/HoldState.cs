@@ -12,22 +12,18 @@ namespace Assets.Scripts.Character.Bloon.States
 
         public override void CheckSwitchState()
         {
-            throw new NotImplementedException();
         }
 
         public override void EnterState()
         {
-            throw new NotImplementedException();
         }
 
         public override void ExitState()
         {
-            throw new NotImplementedException();
         }
 
         public override void HandleState()
         {
-            throw new NotImplementedException();
         }
     }
 }

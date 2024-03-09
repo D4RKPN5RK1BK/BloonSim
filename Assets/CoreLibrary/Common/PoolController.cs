@@ -38,6 +38,7 @@ namespace CoreLibrary.Common
                     for (var i = 0; i < p.StartQuantity; i++)
                     {
                         var temp = Instantiate(p.ObjectPrefab, transform);
+                        temp.SetActive(false);
                         _activePools[p.Tag].Push(temp);
                     }
                 }
@@ -53,7 +54,10 @@ namespace CoreLibrary.Common
             if (!pool.Any())
                 ExpandPool(poolTag);
 
-            return _activePools[poolTag].Pop();
+            var temp = _activePools[poolTag].Pop();
+            temp.SetActive(true);
+
+            return temp;
         }
 
         ///<summary>

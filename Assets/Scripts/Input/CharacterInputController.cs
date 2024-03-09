@@ -10,6 +10,7 @@ namespace Assets.Scripts.Input
     {
         private POVHandler rotateHandler;
         private WalkHandler walkHandler;
+        private BloonSpawnHandler bloonSpawnHandler;
         private JumpHandler jumpHandler;
 
         protected override void Awake()
@@ -18,6 +19,7 @@ namespace Assets.Scripts.Input
             rotateHandler = GetComponent<POVHandler>();
             walkHandler = GetComponent<WalkHandler>();
             jumpHandler = GetComponent<JumpHandler>();
+            bloonSpawnHandler = GetComponent<BloonSpawnHandler>();
 
             ActionSet.InGame.Jump.performed += _ => { jumpHandler.Jump(); };
         }
@@ -25,6 +27,8 @@ namespace Assets.Scripts.Input
         private void Start()
         {
             var common = CommonController.Instance;
+
+            ActionSet.InGame.Spawn.performed += _ => { bloonSpawnHandler.SpawnBloon(); };
 
             common.OnPauseToggle += () => { ActionSet.InGame.Disable(); };
             common.OnResumeToggle += () => { ActionSet.InGame.Enable(); };
