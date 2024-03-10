@@ -152,6 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4721583015047946210}
+  - component: {fileID: 3528192554849383872}
   m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
@@ -174,6 +175,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7777375874197065325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3528192554849383872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5012666714309855321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d70d5877a358e4489ad5ecd2122590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5474050808869521537
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,13 +310,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4880625275673635701}
+  - component: {fileID: 8149509872620287163}
   - component: {fileID: 3172838340625278945}
   - component: {fileID: 7305717257548601523}
   - component: {fileID: 2505104862060868245}
   - component: {fileID: 3746461309522377392}
   - component: {fileID: 2554039963931062897}
   - component: {fileID: 985624650129537365}
-  - component: {fileID: 8149509872620287163}
   - component: {fileID: 7821174679947453852}
   m_Layer: 7
   m_Name: BloonBoy
@@ -329,6 +342,32 @@ Transform:
   - {fileID: 2037198979569872836}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &8149509872620287163
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3172838340625278945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,32 +462,6 @@ MonoBehaviour:
   acceliration: 10
   roationDrag: 10
   cameraTarget: {fileID: 0}
---- !u!143 &8149509872620287163
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7923983191012730365}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7821174679947453852
 MonoBehaviour:
   m_ObjectHideFlags: 0
