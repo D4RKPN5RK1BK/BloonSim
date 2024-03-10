@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 2554039963931062897}
   - component: {fileID: 985624650129537365}
   - component: {fileID: 7821174679947453852}
+  - component: {fileID: 5269515819271802732}
   m_Layer: 7
   m_Name: BloonBoy
   m_TagString: Untagged
@@ -472,5 +473,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cadde4a3b316216469cdc218e15d50d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5269515819271802732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923983191012730365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9603e27cefef942a79b37514c8b4d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

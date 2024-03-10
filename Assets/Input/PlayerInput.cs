@@ -62,6 +62,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""b88419eb-ea55-43fd-b431-c8604ef06af2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Spawn"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea1206b4-93b1-4086-b6da-e7046c583a22"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_InGame_Jump = m_InGame.FindAction("Jump", throwIfNotFound: true);
         m_InGame_Rotate = m_InGame.FindAction("Rotate", throwIfNotFound: true);
         m_InGame_Spawn = m_InGame.FindAction("Spawn", throwIfNotFound: true);
+        m_InGame_Pickup = m_InGame.FindAction("Pickup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Jump;
     private readonly InputAction m_InGame_Rotate;
     private readonly InputAction m_InGame_Spawn;
+    private readonly InputAction m_InGame_Pickup;
     public struct InGameActions
     {
         private @PlayerInput m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_InGame_Jump;
         public InputAction @Rotate => m_Wrapper.m_InGame_Rotate;
         public InputAction @Spawn => m_Wrapper.m_InGame_Spawn;
+        public InputAction @Pickup => m_Wrapper.m_InGame_Pickup;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Spawn.started += instance.OnSpawn;
             @Spawn.performed += instance.OnSpawn;
             @Spawn.canceled += instance.OnSpawn;
+            @Pickup.started += instance.OnPickup;
+            @Pickup.performed += instance.OnPickup;
+            @Pickup.canceled += instance.OnPickup;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -274,6 +300,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Spawn.started -= instance.OnSpawn;
             @Spawn.performed -= instance.OnSpawn;
             @Spawn.canceled -= instance.OnSpawn;
+            @Pickup.started -= instance.OnPickup;
+            @Pickup.performed -= instance.OnPickup;
+            @Pickup.canceled -= instance.OnPickup;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -297,5 +326,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnSpawn(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
 }

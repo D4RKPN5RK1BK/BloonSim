@@ -5,14 +5,17 @@ namespace Assets.Scripts.Common
 {
     public class PickupDetector : MonoBehaviour
     {
-        private float detectionBuffer = 0.1f;
+        private float detectionBuffer = 0.05f;
         private float rayDistance = 6.0f;
+
+        public bool IsPickupFound { get; private set; }
+        public  GameObject Pickup { get; private set; }
 
         private float collisionDetected { get; set; }
 
-        public Action<GameObject> PickupFound;
+        public Action<GameObject> PickupFound = _ => { Debug.Log($"PickupFound"); };
 
-        public Action PickupLost;
+        public Action PickupLost = () => { Debug.Log($"PickupLost"); };
 
         private void Update()
         {
@@ -23,18 +26,30 @@ namespace Assets.Scripts.Common
 
                 if (collided)
                 {
-                    collisionDetected = Time.time;
-                    PickupFound(collision.collider.gameObject);
+                    var pick = collision.collider.gameObject;
+                    if (pick != Pickup)
+                    {
+                        collisionDetected = Time.time;
+                        Pickup = pick;
+                    }
+
+                    if (!IsPickupFound)
+                    {
+                        IsPickupFound = true;
+                        PickupFound(pick);
+                    }
                 }
                 else
-                    PickupLost();
+                {
+                    if (IsPickupFound)
+                    {
+                        Pickup = null;
+                        IsPickupFound = false;
+                        PickupLost();
+                    }
+                }
+                    
             }
-
-
-
-
         }
-
-
     }
 }

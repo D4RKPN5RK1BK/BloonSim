@@ -10,12 +10,14 @@ namespace Assets.Scripts.Input
     {
         private POVHandler rotateHandler;
         private WalkHandler walkHandler;
+        private PickupHandler pickupHandler;
         private BloonSpawnHandler bloonSpawnHandler;
         private JumpHandler jumpHandler;
 
         protected override void Awake()
         {
             base.Awake();
+            pickupHandler = GetComponent<PickupHandler>();
             rotateHandler = GetComponent<POVHandler>();
             walkHandler = GetComponent<WalkHandler>();
             jumpHandler = GetComponent<JumpHandler>();
@@ -29,6 +31,7 @@ namespace Assets.Scripts.Input
             var common = CommonController.Instance;
 
             ActionSet.InGame.Spawn.performed += _ => { bloonSpawnHandler.SpawnBloon(); };
+            ActionSet.InGame.Pickup.performed += _ => { pickupHandler.ActivatePickup(); };
 
             common.OnPauseToggle += () => { ActionSet.InGame.Disable(); };
             common.OnResumeToggle += () => { ActionSet.InGame.Enable(); };
