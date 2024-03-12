@@ -5,11 +5,17 @@ using UnityEngine;
 
 namespace Assets.Scripts.Character.ActionHandlers
 {
+    [RequireComponent(typeof(BloonCounter))]
     public class BloonSpawnHandler : BaseActionHandler
     {
         private GameObject spawner;
-
+        private BloonCounter bloonCounter;
         private PoolController poolController;
+
+        private void Awake()
+        {
+            bloonCounter = GetComponent<BloonCounter>();
+        }
 
         private void Start()
         {
@@ -19,9 +25,15 @@ namespace Assets.Scripts.Character.ActionHandlers
 
         public void SpawnBloon()
         {
-            var bloon = poolController.Take(PoolTags.Bloons);
-            bloon.transform.position = spawner.transform.position;
-            bloon.GetComponent<BloonReseter>().Reset();
+            if (bloonCounter.BloonCount > 0)
+            {
+                bloonCounter.BloonCount--;
+                var bloon = poolController.Take(PoolTags.Bloons);
+                bloon.transform.position = spawner.transform.position;
+                bloon.GetComponent<BloonReseter>().Reset();
+
+            }
+
             Trigger();
         }
     }

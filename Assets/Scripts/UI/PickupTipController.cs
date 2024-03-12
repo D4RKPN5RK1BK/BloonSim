@@ -1,4 +1,5 @@
 using Assets.Scripts.Common;
+using CoreLibrary.Common;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
@@ -12,6 +13,9 @@ namespace Assets.Scripts.UI
 
         private Animator animator;
 
+        private bool active;
+        private bool pauseHide;
+
         private void Awake()
         {
             animator = GetComponent<Animator>();
@@ -19,8 +23,27 @@ namespace Assets.Scripts.UI
 
         private void Start()
         {
-            source.PickupFound += _ => { animator.SetTrigger(Select); };
-            source.PickupLost += () => { animator.SetTrigger(Deselect); };
+            var commonController = CommonController.Instance;
+
+            source.PickupFound += _ => { animator.SetTrigger(Select); active = true; };
+            source.PickupLost += () => { animator.SetTrigger(Deselect); active = false; };
+
+            commonController.OnPauseToggle += () =>
+            {
+                if (active)
+                {
+                    animator.SetTrigger(Deselect);
+                    pauseHide = true;
+                }
+            };
+            commonController.OnResumeToggle += () =>
+            {
+                if (pauseHide)
+                {
+                    animator.SetTrigger(Select);
+                    pauseHide = false;
+                }
+            };
         }
     }
 }
