@@ -9,38 +9,30 @@ namespace Assets.Scripts.Character.ActionHandlers
         [Space(10)]
         public CinemachineVirtualCamera cameraTarget;
 
-        private CinemachinePOV body;
+        Vector2 current;
+        Vector2 currentVeclocity;
 
         private Transform character;
         private Transform head;
-
-        private float horizontalRotation;
-        private float verticalRotation;
 
         private void Start()
         {
             character = transform.Find("Character");
             head = character.Find("Head");
             cameraTarget.Follow = head;
-            body = cameraTarget.GetCinemachineComponent<CinemachinePOV>();
         }
 
         public override void Rotate(Vector2 rotation)
         {
-            character.Rotate(0, rotation.x, 0);
+            if (rotation.y + current.y > 70f || rotation.y + current.y < -70f)
+                rotation.y = 0;
 
-            horizontalRotation += rotation.x;
-            verticalRotation = ClampAngle(verticalRotation - rotation.y, -70, 70);
+            current = Vector2.SmoothDamp(current, current + rotation, ref currentVeclocity, 0.05f);
 
-            character.localRotation = Quaternion.Euler(0, horizontalRotation, 0);
-            head.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
-        }
+            Debug.Log($"current = {current} rotation = {rotation}");
 
-        private float ClampAngle(float lfAngle, float lfMin, float lfMax)
-        {
-            if (lfAngle < -360f) lfAngle += 360f;
-            if (lfAngle > 360f) lfAngle -= 360f;
-            return Mathf.Clamp(lfAngle, lfMin, lfMax);
+            character.localRotation = Quaternion.Euler(0, current.x, 0);
+            head.localRotation = Quaternion.Euler(-current.y, 0, 0);
         }
     }
 }

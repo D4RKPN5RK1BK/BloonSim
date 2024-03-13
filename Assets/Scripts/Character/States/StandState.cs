@@ -45,10 +45,10 @@ namespace Assets.Scripts.Character.States
             var offset = _walkHandler.WalkDirection;
 
             // это интересно
-            var target = _character.transform.TransformDirection(new Vector3(offset.x, 0, offset.y));
+            var target = _character.transform.TransformDirection(new Vector3(offset.x, -5, offset.y));
 
             // это еще интереснее
-            current = Vector3.SmoothDamp(current, target * _walkHandler.walkModel.maxForce, ref currentVelocity, 0.1f);
+            current = Vector3.SmoothDamp(current, target * _walkHandler.walkModel.maxForce, ref currentVelocity, 0.05f);
 
             _characterController.Move(Time.deltaTime * current);
         }

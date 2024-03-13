@@ -31,6 +31,7 @@ namespace CoreLibrary.Common
         private void Start()
         {
             Time.timeScale = 1.0f;
+            Cursor.visible = disableCursor && InPause;
         }
 
         public void Pause()
