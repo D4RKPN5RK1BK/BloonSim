@@ -10,8 +10,7 @@ namespace CoreLibrary.Common
 
         [Space(10)]
 
-        public float speedup = 10f;
-        public float drag = 10f;
+        public float smoothTime;
 
         [Space(10)]
 

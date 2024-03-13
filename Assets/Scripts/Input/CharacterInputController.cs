@@ -32,6 +32,7 @@ namespace Assets.Scripts.Input
 
             ActionSet.InGame.Spawn.performed += _ => { bloonSpawnHandler.SpawnBloon(); };
             ActionSet.InGame.Pickup.performed += _ => { pickupHandler.ActivatePickup(); };
+            ActionSet.InGame.Jump.performed += _ => { jumpHandler.Jump(); };
 
             common.OnPauseToggle += () => { ActionSet.InGame.Disable(); };
             common.OnResumeToggle += () => { ActionSet.InGame.Enable(); };
