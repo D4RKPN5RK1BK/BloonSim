@@ -6,7 +6,7 @@ namespace CoreLibrary.Common
     [Serializable]
     public record WalkModel
     {
-        public float maxForce = 10.0f;
+        public float force = 10.0f;
 
         [Space(10)]
 
@@ -21,7 +21,9 @@ namespace CoreLibrary.Common
         public float fallForce = 300f;
 
         [Range(0.0f, 1.0f)]
-
         public float airControlModifier;
+
+        [NonSerialized]
+        public Vector3 velocity;
     }
 }

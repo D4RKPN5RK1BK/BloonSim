@@ -7,7 +7,5 @@ namespace CoreLibrary.Character
         [Min(0)]
         [Tooltip("Сила гравитация оказываемая на персонажа")]
         public float gravityPressure = 1.0f;
-
-        public Vector3 Velocity { get; set; }
     }
 }

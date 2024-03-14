@@ -51,6 +51,11 @@ namespace CoreLibrary.StateMachine
         public abstract void HandleState();
 
         /// <summary>
+        /// Функция для добавление физики к объекту, например AddForce. Создана для того чтобы сувать ее в FixedUpdate
+        /// </summary>
+        public virtual void FixedHandleState() { }
+
+        /// <summary>
         /// Проверяет на то что состояние необходимо обновить, 
         /// и обновляет его в зависисости от прописаного условия
         /// </summary>

@@ -29,8 +29,6 @@ namespace Assets.Scripts.Character.ActionHandlers
 
             current = Vector2.SmoothDamp(current, current + rotation, ref currentVeclocity, 0.05f);
 
-            Debug.Log($"current = {current} rotation = {rotation}");
-
             character.localRotation = Quaternion.Euler(0, current.x, 0);
             head.localRotation = Quaternion.Euler(-current.y, 0, 0);
         }

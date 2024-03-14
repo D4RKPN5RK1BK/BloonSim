@@ -10,6 +10,8 @@ namespace CoreLibrary.Character
         public WalkModel walkModel;
         public WalkModel runModel;
 
+        public Vector3 CurrentDirection { get; set; }
+
         public WalkModel CurrentModel { get; private set; }
 
         public bool RequireRun { get; private set; }

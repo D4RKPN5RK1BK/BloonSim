@@ -11,12 +11,6 @@ namespace Assets.Scripts.Character.States
         private readonly CharacterController _characterController;
         private readonly Transform _character;
 
-        private float smoothTime = 0.2f;
-        private float maxSpeed = 30f;
-
-        private Vector3 current;
-        private Vector3 currentVelocity;
-
         public StandState(GameObject model, IStateContext<DefaultCharacterFactory> handler, DefaultCharacterFactory factory) : base(model, handler, factory)
         {
             _characterController = model.GetComponent<CharacterController>();
@@ -48,9 +42,9 @@ namespace Assets.Scripts.Character.States
             var target = _character.transform.TransformDirection(new Vector3(offset.x, -5, offset.y));
 
             // это еще интереснее
-            current = Vector3.SmoothDamp(current, target * _walkHandler.walkModel.maxForce, ref currentVelocity, 0.05f);
+            _walkHandler.CurrentDirection = Vector3.SmoothDamp(_walkHandler.CurrentDirection, target * _walkHandler.walkModel.force, ref _walkHandler.walkModel.velocity, _walkHandler.walkModel.smoothTime);
 
-            _characterController.Move(Time.deltaTime * current);
+            _characterController.Move(Time.deltaTime * _walkHandler.CurrentDirection);
         }
 
         private void SwitchToJump() => SwitchState(Factory.Jump);

@@ -35554,15 +35554,25 @@ PrefabInstance:
       propertyPath: cameraTarget
       value: 
       objectReference: {fileID: 1266979837}
+    - target: {fileID: 2505104862060868245, guid: 5a836b88cc7eb634a808911ae5de2638,
+        type: 3}
+      propertyPath: gravityPressure
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554039963931062897, guid: 5a836b88cc7eb634a808911ae5de2638,
+        type: 3}
+      propertyPath: walkModel.fallForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2554039963931062897, guid: 5a836b88cc7eb634a808911ae5de2638,
         type: 3}
       propertyPath: walkModel.smoothTime
-      value: 12
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3746461309522377392, guid: 5a836b88cc7eb634a808911ae5de2638,
         type: 3}
       propertyPath: jumpForce
-      value: 30
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4880625275673635701, guid: 5a836b88cc7eb634a808911ae5de2638,
         type: 3}
