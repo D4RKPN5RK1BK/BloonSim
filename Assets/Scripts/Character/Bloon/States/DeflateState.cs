@@ -7,19 +7,31 @@ namespace Assets.Scripts.Character.Bloon.States
     {
         private GameObject deflateModel;
         private GameObject normalModel;
+        private Renderer[] normalRederers;
+        private Renderer[] deflateRederers;
 
-        private float duration = 4.0f;
+
+        private float duration = 3.0f;
         private readonly Rigidbody rigitbody;
+        private readonly AudioSource audioSource;
+
         private float endOfState;
 
         private float force;
 
+        private readonly Color[] colors =
+        {
+            Color.blue, Color.green, Color.red, Color.clear, Color.black, Color.magenta
+        };
+
         public DeflateState(GameObject model, IStateContext<BloonStateFactory> handler, BloonStateFactory factory) : base(model, handler, factory)
         {
             rigitbody = model.GetComponent<Rigidbody>();
-
+            audioSource = model.GetComponent<AudioSource>();
             deflateModel = model.transform.Find("DeflateModel").gameObject;
             normalModel = model.transform.Find("Model").gameObject;
+            normalRederers = normalModel.GetComponentsInChildren<Renderer>();
+            deflateRederers = deflateModel.GetComponentsInChildren<Renderer>();
         }
 
         public override void CheckSwitchState()
@@ -34,6 +46,16 @@ namespace Assets.Scripts.Character.Bloon.States
         {
             normalModel.SetActive(true);
             deflateModel.SetActive(false);
+
+            audioSource.Play();
+
+            var color = colors[Random.Range(0, colors.Length)];
+
+            foreach (var material in normalRederers)
+                material.material.color = new Color(color.r, color.g, color.b, 0.7f);
+
+            foreach (var material in deflateRederers)
+                material.material.color = new Color(color.r, color.g, color.b, 1);
 
             normalModel.transform.localScale = Vector3.one;
 
