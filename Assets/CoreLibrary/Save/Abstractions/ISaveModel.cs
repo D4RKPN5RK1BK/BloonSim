@@ -2,6 +2,6 @@
 {
     public interface ISaveModel
     {
-        public string FileName { get;set; }
+        public string FileName { get; }
     }
 }
