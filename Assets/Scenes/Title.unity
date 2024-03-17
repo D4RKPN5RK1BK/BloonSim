@@ -2328,8 +2328,9 @@ GameObject:
   m_Component:
   - component: {fileID: 291567003}
   - component: {fileID: 291567004}
+  - component: {fileID: 291567005}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: MusicVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2407,7 +2408,31 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 291567005}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.SettingsApplayer, Assembly-CSharp
+        m_MethodName: UpdateMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &291567005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291567002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d1adae14eb6f147b526b7a110340e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &311194266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8195,6 +8220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1125565465}
   - component: {fileID: 1125565466}
+  - component: {fileID: 1125565467}
   m_Layer: 0
   m_Name: AudioBackground
   m_TagString: Untagged
@@ -8314,6 +8340,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1125565467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125565464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a52f76073ba0fe48b278106819d0d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132683527
 GameObject:
   m_ObjectHideFlags: 0
@@ -16992,8 +17030,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2060368139}
   - component: {fileID: 2060368140}
+  - component: {fileID: 2060368141}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: EffectsVolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17071,7 +17110,43 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2060368141}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.SoundEffectsApplayer, Assembly-CSharp
+        m_MethodName: UpdateEffectsVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Assets.Scripts.UI.SettingsApplayer, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2060368141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060368138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4b5b4589b9b834ab593c0bfcd21833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2074040513
 GameObject:
   m_ObjectHideFlags: 0

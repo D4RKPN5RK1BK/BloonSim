@@ -1,4 +1,5 @@
 ﻿using CoreLibrary.Save;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Save
@@ -25,7 +26,20 @@ namespace Assets.Scripts.Save
                 Instance = this;
                 DontDestroyOnLoad(this);
                 saveHelper = new SaveFileHelper<SaveDataModel>();
-                Model = saveHelper.Load(SaveName);
+                var saves = saveHelper.All();
+                
+                if (saves.Any(i => i.name == SaveName))
+                {
+                    Model = saveHelper.Load(SaveName);
+                }
+                else
+                {
+                    Debug.Log($"fail");
+                    Model = new SaveDataModel()
+                    {
+                        name = SaveName
+                    };
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ namespace CoreLibrary.Save
         {
             var formatter = new BinaryFormatter();
             var dataPath = Application.persistentDataPath;
-            var savePath = Path.Combine(dataPath, saveName);
+            var savePath = Path.Combine(dataPath, SaveFileName(saveName));
 
             if (!File.Exists(savePath))
                 return new T();

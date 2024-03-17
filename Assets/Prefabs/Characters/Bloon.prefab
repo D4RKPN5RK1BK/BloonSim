@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 7260312606648646821}
   - component: {fileID: 655555028024399633}
   - component: {fileID: 8640585198213756535}
+  - component: {fileID: 7976889942611700391}
   m_Layer: 6
   m_Name: Bloon
   m_TagString: Untagged
@@ -119,7 +120,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &7260312606648646821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +242,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7976889942611700391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553775931094433652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a5b5d2a24d1a54f93fff19d2986e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7262008996571909360
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +449,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1543200844137301641, guid: 4e5bbb4919b199749851589e651492a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1252959884454280111}
   m_SourcePrefab: {fileID: 100100000, guid: 4e5bbb4919b199749851589e651492a5, type: 3}
 --- !u!4 &542069832302573698 stripped
 Transform:
@@ -444,6 +461,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1847757820813567153}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &922676139462877752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1543200844137301641, guid: 4e5bbb4919b199749851589e651492a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847757820813567153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1252959884454280111
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922676139462877752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28d3c0a7d912dd94b8d14b65c99dae06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5669429012134163266
 PrefabInstance:
   m_ObjectHideFlags: 0

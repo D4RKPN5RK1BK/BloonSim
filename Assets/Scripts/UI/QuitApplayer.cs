@@ -1,9 +1,25 @@
+using Assets.Scripts.Save;
+using CoreLibrary.Save;
 using UnityEngine;
 
-public class QuitApplayer : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public void Quit()
+    public class QuitApplayer : MonoBehaviour
     {
-        Application.Quit();
+        private CrossSceneDataController crossSceneDataController;
+        private SaveFileHelper<SaveDataModel> saveFileHelper;
+
+        private void Start()
+        {
+            crossSceneDataController = CrossSceneDataController.Instance;
+            saveFileHelper = new SaveFileHelper<SaveDataModel>();
+        }
+
+        public void Quit()
+        {
+            saveFileHelper.Save(crossSceneDataController.Model);
+            Debug.Log("Quit");
+            Application.Quit();
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace Assets.Scripts.Character.ActionHandlers
                 var bloon = poolController.Take(PoolTags.Bloons);
                 bloon.transform.position = spawner.transform.position;
                 bloon.GetComponent<BloonReseter>().Reset();
+                bloon.transform.up = spawner.transform.forward;
 
             }
 
